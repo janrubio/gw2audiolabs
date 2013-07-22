@@ -23,8 +23,10 @@
                 $buttons[pressed - 1].addClass('active');
             } else if (code == 57) {
                 $bell.downOctave();
+                $buttons[8].addClass('active');
             } else if (code == 48) {
                 $bell.upOctave();
+                $buttons[9].addClass('active');
             }
             
             if (code == 57 || code == 48) {
@@ -38,6 +40,16 @@
             $.each($buttons, function (index, $button) {
                 $button.removeClass('active');
             }); 
+        });
+        
+        $('.instrument').on('click', function () {
+            $('.picker').toggleClass('picked');
+            $('.instruments').toggle();
+        });
+        
+        $('.choirbell').on('click', function () {
+            $('.picker').toggleClass('picked');
+            $('.instruments').toggle();
         });
         
         $('.b1').on('click', function () { $bell.play(1); });

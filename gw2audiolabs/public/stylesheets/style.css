@@ -15,13 +15,13 @@ a {
     margin-top: 10%;
     padding: 40px;
     position: relative;
-    width: 615px;
+    width: 725px;
 }
 
 .octave {
   position: absolute;
   top: 5px;
-  left: 360px;
+  left: 455px;
   width: 32px;
   height: 32px;
 }
@@ -47,16 +47,41 @@ a {
   box-shadow: inset 0 0 10px 8px #fff;
 }
 
-.b1 { background-image: url('/images/buttons/1.jpg'); }
+.b1 { background-image: url('/images/buttons/1.jpg'); margin-left: 40px; }
 .b2 { background-image: url('/images/buttons/2.jpg'); }
 .b3 { background-image: url('/images/buttons/3.jpg'); }
 .b4 { background-image: url('/images/buttons/4.jpg'); }
 .b5 { background-image: url('/images/buttons/5.jpg'); }
 .b6 { background-image: url('/images/buttons/6.jpg'); margin-left: 40px; }
-.b7 { background-image: url('/images/buttons/7.jpg'); }
+.b7 { background-image: url('/images/buttons/7.jpg'); margin-left: 10px; }
 .b8 { background-image: url('/images/buttons/8.jpg'); }
 .b9 { background-image: url('/images/buttons/9.jpg'); }
-.b0 { background-image: url('/images/buttons/0.jpg'); margin-left: 15px; }
+.b0 { background-image: url('/images/buttons/0.jpg'); margin-left: 10px; }
 
 .b9.off { background-image: url('/images/buttons/9_off.jpg'); }
 .b0.off { background-image: url('/images/buttons/0_off.jpg'); }
+
+.picker { 
+    position: absolute;
+    background-image: url('/images/buttons/picker.jpg');
+    top: 31px;
+    left: 41px;
+    width: 54px;
+    height: 10px;
+}
+.picker.picked { background-image: url('/images/buttons/picked_picked.jpg'); }
+.instrument { background-image: url('/images/buttons/bell.jpg'); }
+
+.instruments {
+    display: none;
+    position: absolute;
+    background: rgba(0, 0, 0, .8);
+    border: 1px solid #222;
+    top: -55px;
+    left: 18px;
+    width: 54px;
+    height: 54px;
+    padding: 20px;
+}
+
+.choirbell { background-image: url('/images/buttons/bell.jpg'); }

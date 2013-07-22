@@ -1,7 +1,62 @@
 body {
+  background: url('http://fc07.deviantart.net/fs71/f/2010/231/a/6/GW2_Dragon_1080p_Wallpaper_by_AngelicBond.jpg');
+  color: #fff;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 a {
   color: #00b7ff;
 }
+
+.actionBar {
+    background: rgba(0, 0, 0, .7);
+    height: 60px;
+    margin: 0 auto;
+    margin-top: 10%;
+    padding: 40px;
+    position: relative;
+    width: 615px;
+}
+
+.octave {
+  position: absolute;
+  top: 5px;
+  left: 360px;
+  width: 32px;
+  height: 32px;
+}
+
+.octave.high { background-image: url('/images/buttons/high.jpg'); }
+.octave.medium { background-image: url('/images/buttons/medium.jpg'); }
+.octave.low { background-image: url('/images/buttons/low.jpg'); }
+
+.button {
+  border: 1px solid #000;
+  cursor: pointer;
+  display: inline-block;
+  height: 54px;
+  width: 54px;
+  transition: box-shadow 75ms linear;
+}
+
+.button:hover {
+  box-shadow: inset 0 0 10px 5px #ffffef;
+}
+
+.button.active, .button:active {
+  box-shadow: inset 0 0 10px 8px #fff;
+}
+
+.b1 { background-image: url('/images/buttons/1.jpg'); }
+.b2 { background-image: url('/images/buttons/2.jpg'); }
+.b3 { background-image: url('/images/buttons/3.jpg'); }
+.b4 { background-image: url('/images/buttons/4.jpg'); }
+.b5 { background-image: url('/images/buttons/5.jpg'); }
+.b6 { background-image: url('/images/buttons/6.jpg'); margin-left: 40px; }
+.b7 { background-image: url('/images/buttons/7.jpg'); }
+.b8 { background-image: url('/images/buttons/8.jpg'); }
+.b9 { background-image: url('/images/buttons/9.jpg'); }
+.b0 { background-image: url('/images/buttons/0.jpg'); margin-left: 15px; }
+
+.b9.off { background-image: url('/images/buttons/9_off.jpg'); }
+.b0.off { background-image: url('/images/buttons/0_off.jpg'); }

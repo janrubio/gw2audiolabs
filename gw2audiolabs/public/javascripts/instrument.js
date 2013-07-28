@@ -1,4 +1,4 @@
-(function ($, document, window, undefined) {
+(function ($, document, window, Howl, undefined) {
     
     'use strict';
 
@@ -43,7 +43,6 @@
 
     Instrument.prototype = {
         init: function () {
-            console.warn(this.opts.fullpath);
         },
         
         play: function (key) {
@@ -56,8 +55,12 @@
                 variant++;
             }
             
-            var tune = new Audio(sound + variant + '.mp3');
-            tune.play();
+            //var tune = new Audio(sound + variant + '.mp3');
+            //tune.play();
+            
+            var tune = new Howl({
+              urls: [sound + variant + '.mp3']
+            }).play();
         },
         
         upOctave: function () {
@@ -70,6 +73,10 @@
             if (this.opts.currentOctave > 0) {
                 this.opts.currentOctave--;
             }
+        },
+        
+        resetOctave: function () {
+            this.opts.currentOctave = 1;
         },
         
         octave: function () {
@@ -90,4 +97,4 @@
     var privateFunction = function () {
     }
 
-}(jQuery, document, window));
+}(jQuery, document, window, Howl));

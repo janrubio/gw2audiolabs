@@ -1,4 +1,6 @@
-.actionBar
+.header Guild Wars 2 Audio Labs
+
+.section.actionBar
   .octave.medium
   .instruments
     .button.choirbell
@@ -14,6 +16,76 @@
   .button.b8
   .button.b9
   .button.b0
+
+.section.instructions 
+  .title Compose
+  div.help 
+    .label Help »
+  .moreHelp
+    p Notes consist of the numbers 1 through 8 corresponding to the sounds of the instrument above. These notes use the middle octave.
+    p To specify the high octave, surround the notes with parenthesis: (1 23 55)
+    p To specify the low octave, surround the notes with brackets: [851 99]
+    p The delay between each note played is determined by the tempo. Spaces indicate pauses with the duration of a single note.
+    p You can chain spaces together to lengthen the time between notes being played: 176&nbsp;&nbsp;&nbsp;28 (12) [518](111)
+  div
+    textarea.notation(placeholder = "Type notes here")
+    div
+      .tempoLabel Tempo (in milliseconds)
+      input.tempo(type = "text", value = "300")
+    .play Play
+  div
+    .permalinkLabel Permalink
+    span
+      input.autoplay(type = "checkbox", id = "autoplay", name = "autoplay")
+      label.autoplayLabel(for = "autoplay") Autoplay on page load
+      input.permalink(type = "text")
+    
+.section.playlist
+  .title Playlist
+  .song(data-notes = "667887654456 655 6678 8765 4456 544 5564 56765 56765 4 5 1 66788765 4456544")
+    .name Beethoven - Ode to Joy
+    .by (Courtesy of PleaseStaySafe)
+    .play Play
+  .song(data-notes = "5 5 5 2 65 2 65 (2223) 64 2 65")
+    .name Imperial march 
+    .by (Courtesy of Efrima)
+    .play Play
+  .song(data-notes ="74 457787 7578 (121)757(21)7 7578 (121) 7545 5657 5657 7645 5657 5657 787(2 2)787 787(211 3212 76554 321244 3212 76554 321222341) 5(554 3321 556554321)")
+    .name Into the West - Full (Lord of the Rings)
+    .by
+    .play Play
+  .song(data-notes = "7 77 67 767 8 (2) 8 7 77 67 7 4 4 7 84 (4 3 2 123 2 1) 767 767 74")
+    .name My Heart Will Go On (Titanic)
+    .by
+    .play Play
+  .song(data-notes = "56 54 865 5656587 45 42754 4545 4 52")
+    .name Rudolph the Red Nose Reindeer
+    .by
+    .play Play
+  .song(data-notes = "5 23 4 32 1 13 5 43 2 23 4 5 3 1 1")
+    .name Tetris
+    .by (Courtesy of Glacier6)
+    .play Play
+  .source http://www.reddit.com/r/Guildwars2/comments/14w8be/choir_bell_songs/
+
+.section.upcoming 
+  .title Upcoming Features
+  ul
+    li Marriner's Horn and Flute!
+    li Better support for notation/rhythm
+    li Mario Paint Composer-like interface for composing pieces
+
+.section.footer
+  .title Brought to you by:
+  ul
+    li 
+      a(href = "http://obirulabs.com/", target = "_blank") Obiru Labs
+    li
+      a(href = "https://twitter.com/jan_rubio", target = "_blank") @jan_rubio
+    li 
+      a(href = "https://twitter.com/heyits0livia", target = "_blank") @heyits0livia
+    li 
+      a(href = "https://twitter.com/sherwinrubio", target = "_blank") @sherwinrubio
 
 .bell
 .horn

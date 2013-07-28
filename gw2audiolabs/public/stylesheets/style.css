@@ -1,5 +1,8 @@
+@import url(http://fonts.googleapis.com/css?family=Cinzel);
+
 body {
-  background: url('http://fc07.deviantart.net/fs71/f/2010/231/a/6/GW2_Dragon_1080p_Wallpaper_by_AngelicBond.jpg');
+  background: url('/images/Desert.jpg');
+  background-size: cover;
   color: #fff;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -8,14 +11,111 @@ a {
   color: #00b7ff;
 }
 
-.actionBar {
+.help .label {
+    color: #999;
+    padding: 10px 0;
+    cursor: pointer;
+    text-align: right;
+}
+
+.help .label:hover {
+    color: #fff;
+}
+
+.help .label:active {
+    color: #cece00;
+}
+
+.moreHelp {
+    display: none;
+    margin-bottom: 25px;
+}
+
+.header {
+    width: 458px;
+    font-size: 2.5em;
     background: rgba(0, 0, 0, .7);
-    height: 60px;
     margin: 0 auto;
-    margin-top: 10%;
     padding: 40px;
-    position: relative;
+    font-family: 'Cinzel', serif;
+}
+
+.section {
+    background: rgba(0, 0, 0, .7);
+    margin: 0 auto;
+    padding: 40px;
     width: 725px;
+    margin-top: 40px;
+}
+
+.section .title {
+    font-size: 2em;
+    margin-bottom: 25px;
+    font-family: 'Cinzel', serif;
+}
+
+.upcoming {
+}
+
+.instructions {
+}
+
+.instructions .notation {
+    font-size: 1.5em;
+    height: 110px;
+}
+
+.instructions .play {
+    margin-top: 10px;
+    margin-bottom: 25px;
+    width: 80px;
+    background: #B0151F;
+    font-size: 1.5em;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tempoLabel {
+    margin-top: 10px;
+}
+
+.autoplayLabel, .autoplay {
+    cursor: pointer;
+}
+
+.permalinkLabel {
+    margin-bottom: 10px;
+}
+
+.permalink {
+    display: inline-block;
+    width: 100%;
+}
+
+.instructions .play:hover {
+    background: #C72E38;
+}
+
+.instructions .play:active {
+    background: #96121B;
+}
+
+.playlist {
+}
+
+.playlist .source {
+    margin-top: 25px;
+    color: #888;
+}
+
+.actionBar {
+    height: 60px;
+    margin-top: 50px;
+    position: relative;
+}
+
+.footer {
 }
 
 .octave {
@@ -85,3 +185,42 @@ a {
 }
 
 .choirbell { background-image: url('/images/buttons/bell.jpg'); }
+
+.notation {
+    width: 100%;
+    height: 40px;
+}
+
+.song {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.song:hover {
+    background: rgba(0, 0, 0, .2);
+}
+
+.song:hover .play {
+    color: #fff;
+}
+
+.song:active .play, .song:active .name {
+    color: #cece00;
+}
+
+.song .name {
+  display: inline-block;
+  width: 300px;
+}
+
+.song .by {
+    display: inline-block;
+    width: 300px;
+    color: #777;
+}
+
+.song .play {
+    display: inline-block;
+    width: 100px;
+    color: #777;
+}

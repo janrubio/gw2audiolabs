@@ -1,0 +1,13 @@
+{
+    "name": "gw2audiolabs"
+  , "version": "0.0.1"
+  , "private": true
+  , "dependencies": {
+      "express": "2.5.8"
+    , "stylus": ">= 0.0.1"
+    , "jade": ">= 0.0.1"
+  }
+  , "scripts": {
+      "start": "gw2audiolabs/app.js"
+  }
+}

@@ -1,5 +1,207 @@
+@import url(http://fonts.googleapis.com/css?family=Cinzel)
+
 body
+  background: url('/images/Desert.jpg')
+  background-size: cover
+  color: #fff
   padding: 50px
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
+
 a
-  color: #00B7FF
+  color: #00b7ff
+
+.help .label
+  color: #999
+  padding: 10px 0
+  cursor: pointer
+  text-align: right
+
+.help .label:hover
+  color: #fff
+
+.help .label:active
+  color: #cece00
+
+.moreHelp
+  display: none
+  margin-bottom: 25px
+
+.header
+  width: 458px
+  font-size: 2.5em
+  background: rgba(0, 0, 0, .7)
+  margin: 0 auto
+  padding: 40px
+  font-family: 'Cinzel', serif
+
+.section
+  background: rgba(0, 0, 0, .7);
+  margin: 0 auto
+  padding: 40px
+  width: 725px
+  margin-top: 40px
+
+.section .title
+  font-size: 2em
+  margin-bottom: 25px
+  font-family: 'Cinzel', serif
+
+.instructions .notation
+    font-size: 1.5em
+    height: 110px
+
+.instructions .play
+  margin-top: 10px
+  margin-bottom: 25px
+  width: 80px
+  background: #B0151F
+  font-size: 1.5em
+  padding: 10px
+  text-align: center
+  cursor: pointer
+
+.tempoLabel
+  margin-top: 10px
+
+.autoplayLabel, .autoplay
+  cursor: pointer
+
+.permalinkLabel
+  margin-bottom: 10px
+
+.permalink
+  display: inline-block
+  width: 100%
+
+.instructions .play:hover
+  background: #C72E38
+
+.instructions .play:active
+  background: #96121B
+
+.playlist .source
+  margin-top: 25px
+  color: #888
+
+.actionBar
+  height: 60px
+  margin-top: 50px
+  position: relative
+
+.octave
+  position: absolute
+  top: 5px
+  left: 455px
+  width: 32px
+  height: 32px
+
+.octave.high 
+  background-image: url('/images/buttons/high.jpg')
+  
+.octave.medium
+  background-image: url('/images/buttons/medium.jpg')
+
+.octave.low 
+  background-image: url('/images/buttons/low.jpg')
+
+.button
+  border: 1px solid #000
+  cursor: pointer
+  display: inline-block
+  height: 54px
+  width: 54px
+  transition: box-shadow 75ms linear
+
+.button:hover
+  box-shadow: inset 0 0 10px 5px #ffffef
+
+.button.active, .button:active
+  box-shadow: inset 0 0 10px 8px #fff
+
+.b1
+  background-image: url('/images/buttons/1.jpg')
+  margin-left: 40px
+.b2
+  background-image: url('/images/buttons/2.jpg')
+.b3
+  background-image: url('/images/buttons/3.jpg')
+.b4
+  background-image: url('/images/buttons/4.jpg')
+.b5
+  background-image: url('/images/buttons/5.jpg')
+.b6
+  background-image: url('/images/buttons/6.jpg')
+  margin-left: 40px
+.b7
+  background-image: url('/images/buttons/7.jpg')
+  margin-left: 10px
+.b8
+  background-image: url('/images/buttons/8.jpg')
+.b9
+  background-image: url('/images/buttons/9.jpg')
+.b0
+  background-image: url('/images/buttons/0.jpg')
+  margin-left: 10px
+
+.b9.off
+  background-image: url('/images/buttons/9_off.jpg')
+.b0.off
+  background-image: url('/images/buttons/0_off.jpg')
+
+.picker
+  position: absolute
+  background-image: url('/images/buttons/picker.jpg')
+  top: 31px
+  left: 41px
+  width: 54px
+  height: 10px
+
+.picker.picked
+  background-image: url('/images/buttons/picked_picked.jpg')
+.instrument
+  background-image: url('/images/buttons/bell.jpg')
+
+.instruments
+  display: none
+  position: absolute
+  background: rgba(0, 0, 0, .8)
+  border: 1px solid #222
+  top: -55px
+  left: 18px
+  width: 54px
+  height: 54px
+  padding: 20px
+
+.choirbell
+  background-image: url('/images/buttons/bell.jpg')
+
+.notation
+  width: 100%
+  height: 40px
+
+.song
+  padding: 5px 10px
+  cursor: pointer
+
+.song:hover
+  background: rgba(0, 0, 0, .2)
+
+.song:hover .play
+  color: #fff
+
+.song:active .play, .song:active .name
+  color: #cece00
+
+.song .name
+  display: inline-block
+  width: 300px
+
+.song .by
+  display: inline-block
+  width: 300px
+  color: #777
+
+.song .play
+  display: inline-block
+  width: 100px
+  color: #777

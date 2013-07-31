@@ -19,7 +19,8 @@
             8: '_08_D'
         },
         currentOctave: 1,
-        octaves: ['B', 'G', 'R']
+        octaves: ['B', 'G', 'R'],
+        noteCache: { B: {}, G: {}, R: {} }
     };
 
     // Instrument constructor
@@ -43,24 +44,31 @@
 
     Instrument.prototype = {
         init: function () {
+            var octave, 
+                key, 
+                sound, 
+                variant;
+            
+            for (octave = 0; octave < this.opts.octaves.length; octave++) {
+                for (key = 1; key < 9; key++) {
+                    sound = this.opts.fullpath + 
+                            this.opts.octaves[octave] +
+                            this.opts.keyToNote[key];
+                            
+                    variant = 4 + octave;
+                    
+                    if (key == 7 || key == 8) {
+                        variant++;
+                    }
+                    
+                    this.opts.noteCache[this.opts.octaves[octave]][key] = new Howl({urls: [sound + variant + '.mp3']});
+                }
+            }
         },
         
         play: function (key) {
-            var sound = this.opts.fullpath + 
-                        this.opts.octaves[this.opts.currentOctave] +
-                        this.opts.keyToNote[key],
-                variant = 4 + this.opts.currentOctave;
-                
-            if (key == 7 || key == 8) {
-                variant++;
-            }
-            
-            //var tune = new Audio(sound + variant + '.mp3');
-            //tune.play();
-            
-            var tune = new Howl({
-              urls: [sound + variant + '.mp3']
-            }).play();
+            var octave = this.opts.octaves[this.opts.currentOctave];
+            this.opts.noteCache[octave][key].play();
         },
         
         upOctave: function () {

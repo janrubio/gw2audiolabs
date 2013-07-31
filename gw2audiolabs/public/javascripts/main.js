@@ -5,7 +5,7 @@
     $(document).ready(function () {
         var $octaveIndicator = $('.octave'),
             octaves = ['low', 'medium', 'high'],
-            $buttons = [$('.b1'), $('.b2'), $('.b3'), $('.b4'), $('.b5'), 
+            $buttons = [$('.b1'), $('.b2'), $('.b3'), $('.b4'), $('.b5'),
                         $('.b6'), $('.b7'), $('.b8'), $('.b9'), $('.b0')],
             $bell = $('.bell')
                         .instrument({ name: 'choirbell' })
@@ -16,14 +16,20 @@
             hasHash = url.indexOf("#") > 0,
             hash = url.substring(url.indexOf("#") + 1),
             hashPieces,
-            hashNotes;
+            hashTempo, hashTempoIndex = 1,
+            hashNotes, hashNotesIndex = 2,
+            hashAutoplay, hashAutoplayIndex = 3,
+            hashOctave, hashOctaveIndex = 4;
         
         if (hasHash) {
             hashPieces = hash.split('.');
-            hashNotes = decodeURIComponent(hashPieces[2]);
+            hashTempo = hashPieces[hashTempoIndex];
+            hashNotes = decodeURIComponent(hashPieces[hashNotesIndex]).replace(/l/g, ' ');
+            hashAutoplay = hashPieces[hashAutoplayIndex];
+            hashOctave = hashPieces[hashOctaveIndex];
             
             $('.notation').val(hashNotes);
-            $('.tempo').val(hashPieces[1]);
+            $('.tempo').val(hashTempo);
             
             if (hashPieces[3] === 'autoplay') {
                 $('.autoplay').prop('checked', true);
@@ -31,6 +37,10 @@
                     stopSong(songTimers);
                     songTimers = playSong(hashNotes);
                 }, 1500);
+            }
+            
+            if (hashOctave !== null && hashOctave !== undefined) {
+                $('.octaveDelay').val(hashOctave);
             }
             
             generatePermalink();
@@ -41,6 +51,10 @@
         });
         
         $('.tempo').on('keyup', function() {
+            generatePermalink();
+        });
+        
+        $('.octaveDelay').on('keyup', function() {
             generatePermalink();
         });
         
@@ -80,10 +94,18 @@
             }
         });
         
-        $('body').on('keyup', function () {
-            $.each($buttons, function (index, $button) {
-                $button.removeClass('active');
-            }); 
+        $('body').on('keyup', function (e) {
+            var code = e.which,
+                pressed = code - 48;
+                
+            if (code > 48 && code < 57) {
+                $buttons[pressed - 1].removeClass('active');
+            } else if (code == 57) {
+                $buttons[8].removeClass('active');
+            } else if (code == 48) {
+                $bell.upOctave();
+                $buttons[9].removeClass('active');
+            }
         });
         
         $('.instrument').on('click', function () {
@@ -109,8 +131,14 @@
         $('.b0').on('click', function () { $bell.upOctave();handleOctaveIndicator(octaves[$bell.octave()], $octaveIndicator); handleOctave($bell.octave(), $buttons[8], $buttons[9]); });
     
         $('.song').on('click', function () {
-            var $notesIndicator = $('.notation'),
-                notes = $(this).data('notes');
+            var $this = $(this),
+                $notesIndicator = $('.notation'),
+                notes = $this.data('notes'),
+                tempo = $this.data('tempo');
+            
+            if (tempo !== null && tempo !== undefined) {
+                $('.tempo').val(tempo);
+            }
             $notesIndicator.val(notes);
 
             if ($bell.octave() == 0) {
@@ -146,7 +174,12 @@
         press.ctrlKey = false;
         press.which = key.charCodeAt(0);
         $body.trigger(press);
-        setTimeout(function () { $body.trigger($.Event('keyup')); }, 150);
+        setTimeout(function () { 
+            var up = $.Event('keyup');
+            up.ctrlKey = false;
+            up.which = key.charCodeAt(0);
+            $body.trigger(up); 
+        }, 150);
     }
     
     function handleOctave(octave, $up, $down) {
@@ -170,14 +203,12 @@
     
     function playSong(notes) {
         var songKeys = notes.split(''),
-            tempo = +$('.tempo').val(),
+            baseSpeed = +$('.tempo').val(),
+            swapSpeed = +$('.octaveDelay').val(),
             delay = 0,
             songTimers = [];
         
         $.each(songKeys, function (index, key) {
-            var baseSpeed = tempo,
-                swapSpeed = 180;
-            
             if (key === ' ') {
                 delay += baseSpeed;
             } else if (key === '(' || key === ']') {
@@ -215,8 +246,9 @@
     function generatePermalink() {
         var $permalink = $('.permalink'),
             tempo = $('.tempo').val(),
+            octaveDelay = $('.octaveDelay').val(),
             isAutoPlay = $('.autoplay').prop('checked'),
-            notes = $('.notation').val(),
+            notes = $('.notation').val().replace(/ /g, 'l'),
             pathArray = window.location.href.split( '/' ),
             protocol = pathArray[0],
             host = pathArray[2],
@@ -229,6 +261,8 @@
         } else {
             hash += '.noplay';
         }
+        
+        hash += '.' + octaveDelay;
         
         $permalink.val(permalink + encodeURIComponent(hash));
     }
